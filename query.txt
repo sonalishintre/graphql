@@ -1,0 +1,108 @@
+1)for users
+query{
+  users{
+    name
+  email   
+  }
+}
+
+2) faculties
+query{
+  faculties{
+    id
+    name
+    email
+    role
+    courses{
+      id
+      name
+    }
+  }
+} 
+
+3)students
+query{
+  students{
+    id
+    name
+    email
+    role
+    courses{
+      name
+      
+    }
+   }
+  }
+
+4)courses
+query{
+  courses{
+    id
+    name
+    professor{
+      name 
+    }
+    students{
+      name
+    }    assignments{
+      name
+    }
+  }
+  
+}
+5)createUser
+mutation {
+createUser(name:"lsls", email:"fdfd", role:Student) {
+  name
+  
+}
+}
+6)crateCourse
+mutation{
+  createCourse(name:"DS",facultyID:4){
+    id
+    name
+    professor {
+      name
+      
+    }
+  }
+}
+7) deletecourse=
+mutation{
+  deleteCourse(courseID:4){
+    name
+  }
+  
+}
+
+8) crateassignment
+mutation{
+  createAssignment(courseID: 2, name:"cs_2"){
+    id
+       name
+    }
+  }
+
+9)deleteassignment
+mutation{
+  deleteAssignment(assignmentID:1)  {
+    name
+  }
+}
+10)createassignmentgrade
+mutation{
+  createAssignmentGrade(
+    assignmentID: 3
+    studentID: 1
+    grade: 3.3
+  ){
+    student{
+      name
+    }
+    assignment{
+      id
+      name
+    }
+}
+}
